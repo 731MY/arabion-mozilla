@@ -16,7 +16,7 @@ $(document).ready(function() {
 		var content = links[i].href;
 		// escape dropbox Links
 		var Pattren = /(http|https):\/\/(www\.|)dropbox\.com/i;
-		if(Pattren.test(content)) continue;
+		if(Pattren.test(content) || !isValidURL(content)) continue;
 		
 		type = content.slice(-4).toLowerCase();
 		if (IMAGES.indexOf(type) > -1) {
@@ -35,3 +35,8 @@ $(document).ready(function() {
 		comment.style.backgroundColor = "#FFFFCC";
 	}
 });
+
+function isValidURL(s) { 
+  var testRegex = /^https?:\/\/(?:[a-z\-]+\.)+[a-z]{2,6}(?:\/[^\/#?]+)+\.(?:jpe?g|gif|png)$/;
+  return testRegex.test(s);
+}
