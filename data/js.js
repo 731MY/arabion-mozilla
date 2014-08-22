@@ -23,7 +23,11 @@ $(document).ready(function() {
 		if (IMAGES.indexOf(type) > -1) {
 			// get image grandpa width
 			var SimpleWidth	=	$(links[i]).parent().parent().width();
-			links[i].innerHTML = "<img src='" + content + "' style='max-width:"+SimpleWidth+"px;'>";
+			var ImageVar=document.createElement("img"); // create img element
+			ImageVar.src=content; // set src to image url
+			ImageVar.style="max-width:"+SimpleWidth+"px;"; // grandpa width
+			links[i].innerHTML = ""; // clear element content
+			links[i].appendChild(ImageVar); // append img element
 		}
 	}
 	
