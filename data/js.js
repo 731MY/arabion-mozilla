@@ -16,6 +16,7 @@ $(document).ready(function() {
 		var content = links[i].href;
 		// escape dropbox Links
 		var Pattren = /(http|https):\/\/(www\.|)dropbox\.com/i;
+		// check if a URL is a valid image
 		if(Pattren.test(content) || !isValidURL(content)) continue;
 		
 		type = content.slice(-4).toLowerCase();
